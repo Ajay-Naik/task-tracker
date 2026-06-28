@@ -27,7 +27,6 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    const { email, password } = req.body;
     const trimmedEmail = email.trim();
     const user = await User.findOne({ email: trimmedEmail });
     if (!user) return res.status(400).json({ msg: "Invalid credentials" });
